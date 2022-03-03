@@ -14,10 +14,20 @@ public class InsuredPerson {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-
-   // private Set<Options> options;
     private String fullName;
+
     private Date dob;
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "contract_id", nullable = false)
+    private Contract contract;
+
+    @ManyToMany
+    @JoinTable(name = "insured_persons_options",
+            joinColumns = @JoinColumn(name = "insured_person_id",
+                    referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "option_id", referencedColumnName = "id"))
+    private Set<Option> options;
 
     public InsuredPerson() {}
 

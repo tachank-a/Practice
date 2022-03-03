@@ -40,14 +40,16 @@ public class Contract {
 //    @JoinColumn(name = "agents_id",referencedColumnName = "id")
 //    private Agents agents;
 
-    @GeneratedValue
+    @OneToMany(mappedBy = "contract", fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    private Set<InsuredPerson> insuredPerson;
+
+
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customer_id",referencedColumnName = "id")
     private Customer customers;
 
-//    @OneToMany(mappedBy = "insured_persons", fetch = FetchType.EAGER,
-//            cascade = CascadeType.ALL)
-//    private Set<InsuredPersons> insuredPersons;
+
 
 
     public Contract(long contractNumber, Date dateStart, Date dateEnd, Date dateConclusion, double sum, double premium) {
