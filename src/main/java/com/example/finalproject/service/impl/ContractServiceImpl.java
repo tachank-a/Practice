@@ -2,6 +2,8 @@ package com.example.finalproject.service.impl;
 
 import com.example.finalproject.entity.Contract;
 import com.example.finalproject.repository.ContractRepository;
+import com.example.finalproject.repository.IndividualRepository;
+import com.example.finalproject.repository.OrganizationRepository;
 import com.example.finalproject.service.ContractService;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,7 @@ import java.util.Optional;
 public class ContractServiceImpl implements ContractService {
 
     private final ContractRepository contractRepository;
+
 
     public ContractServiceImpl(ContractRepository contractRepository) {
         this.contractRepository = contractRepository;

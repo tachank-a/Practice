@@ -29,6 +29,14 @@ public class InsuredPerson {
             inverseJoinColumns = @JoinColumn(name = "option_id", referencedColumnName = "id"))
     private Set<Option> options;
 
+
+    public InsuredPerson(String fullName, Date dob, Contract contract, Set<Option> options) {
+        this.fullName = fullName;
+        this.dob = dob;
+        this.contract = contract;
+        this.options = options;
+    }
+
     public InsuredPerson() {}
 
 

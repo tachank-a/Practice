@@ -40,25 +40,23 @@ public class Contract {
 //    @JoinColumn(name = "agents_id",referencedColumnName = "id")
 //    private Agents agents;
 
-    @OneToMany(mappedBy = "contract", fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "contract", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<InsuredPerson> insuredPerson;
 
 
-
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "customer_id",referencedColumnName = "id")
+    @JoinColumn(name = "customer_id", referencedColumnName = "id")
     private Customer customers;
 
 
-
-
-    public Contract(long contractNumber, Date dateStart, Date dateEnd, Date dateConclusion, double sum, double premium) {
+    public Contract(long contractNumber, Date dateStart, Date dateEnd, Date dateConclusion, double sum, double premium, Set<InsuredPerson> insuredPerson) {
         this.contractNumber = contractNumber;
         this.dateStart = dateStart;
         this.dateEnd = dateEnd;
         this.dateConclusion = dateConclusion;
         this.sum = sum;
         this.premium = premium;
+        this.insuredPerson = insuredPerson;
     }
 
     public Contract() {

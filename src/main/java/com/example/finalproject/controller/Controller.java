@@ -2,6 +2,7 @@ package com.example.finalproject.controller;
 
 import com.example.finalproject.entity.Contract;
 import com.example.finalproject.service.ContractService;
+import com.example.finalproject.service.InsuredPersonService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,9 +12,11 @@ import java.util.List;
 public class Controller {
 
     private final ContractService contractService;
+    private final InsuredPersonService insuredPersonService;
 
-    public Controller(ContractService contractService) {
+    public Controller(ContractService contractService, InsuredPersonService insuredPersonService) {
         this.contractService = contractService;
+        this.insuredPersonService = insuredPersonService;
     }
 
     @GetMapping()
