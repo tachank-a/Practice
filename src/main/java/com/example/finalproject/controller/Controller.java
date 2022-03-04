@@ -35,14 +35,8 @@ public class Controller {
     }
 
     @PostMapping()
-    public void addContractIndividual(@RequestBody DTO contract) {
-        contractService.save(Mapper.toContractIndividual(contract));
-        // phoneNumberService.save(phoneNumber);
-    }
-    @PostMapping()
-    public void addContractOrganization(@RequestBody DTO contract) {
-        contractService.save(Mapper.toContractOrganization(contract));
-        // phoneNumberService.save(phoneNumber);
+    public void addContract(@RequestBody DTO contract) {
+    contractService.save(Mapper.toContract(contract));
     }
 
     @DeleteMapping("/{id}")

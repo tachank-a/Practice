@@ -1,11 +1,10 @@
 package com.example.finalproject.entity;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
-@Table(name = "CUSTOMERS")
-@Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Customer {
+public class Customer {
 
     @Id
     @GeneratedValue
@@ -13,6 +12,8 @@ public abstract class Customer {
 
     protected String address;
     protected String phone;
+    private String Name;
+    private Date date;
 
     public Customer() {
     }
@@ -39,6 +40,22 @@ public abstract class Customer {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     @Override

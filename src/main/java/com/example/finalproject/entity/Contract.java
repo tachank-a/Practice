@@ -9,30 +9,16 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name = "CONTRACTS")
 public class Contract {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
     private long id;
-
-    @Column(name = "contract_number")
     private String contractNumber;
-
-    @Column(name = "ds")
     private Date dateStart;
-
-    @Column(name = "de")
     private Date dateEnd;
-
-    @Column(name = "dc")
     private Date dateConclusion;
-
-    @Column(name = "sum")
     private double sum;
-
-    @Column(name = "premium")
     private double premium;
 
 //    @GeneratedValue

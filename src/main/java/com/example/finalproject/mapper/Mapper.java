@@ -2,7 +2,6 @@ package com.example.finalproject.mapper;
 
 import com.example.finalproject.dto.DTO;
 import com.example.finalproject.entity.Contract;
-import com.example.finalproject.entity.Individual;
 
 public class Mapper {
     public static DTO toDto(Contract contract) {
@@ -19,21 +18,9 @@ public class Mapper {
         return contractDTO;
     }
 
-    public static Contract toContractIndividual(DTO contractDTO){
-        Individual contract = new Individual();
-        contract.setId(contractDTO.getId());
-        contract.setDob(contractDTO.getIndividual().getDob());
-        contract.setFirstName(contractDTO.getIndividual().getFirstName());
-        contract.setMiddleName(contractDTO.getIndividual().getMiddleName());
-        contract.setDateConclusion(contractDTO.getIndividual().getLastName());
-        contract.setSum(contractDTO.getSum());
-        contract.setPremium(contractDTO.getPremium());
-        contract.setInsuredPerson(contractDTO.getInsuredPerson());
-        contract.setIn(contractDTO.getCustomers());
-        return contract;
-    }
 
-    public static Contract toContractOrganization(DTO contractDTO){
+
+    public static Contract toContract(DTO contractDTO){
         Contract contract = new Contract();
         contract.setId(contractDTO.getId());
         contract.setContractNumber(contractDTO.getContractNumber());

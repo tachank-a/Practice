@@ -25,19 +25,13 @@ public class InsuredPerson {
     @JoinColumn(name = "contract_id", nullable = false)
     private Contract contract;
 
-    @ManyToMany
-    @JoinTable(name = "insured_persons_options",
-            joinColumns = @JoinColumn(name = "insured_person_id",
-                    referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "option_id", referencedColumnName = "id"))
-    private Set<Option> options;
 
 
-    public InsuredPerson(String fullName, Date dob, Contract contract, Set<Option> options) {
+
+    public InsuredPerson(String fullName, Date dob, Contract contract) {
         this.fullName = fullName;
         this.dob = dob;
         this.contract = contract;
-        this.options = options;
     }
 
     protected InsuredPerson() {
@@ -59,5 +53,21 @@ public class InsuredPerson {
 
     public void setDob(Date dob) {
         this.dob = dob;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Contract getContract() {
+        return contract;
+    }
+
+    public void setContract(Contract contract) {
+        this.contract = contract;
     }
 }
