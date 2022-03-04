@@ -13,7 +13,7 @@ import java.util.Set;
 public class Contract {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private long id;
 
