@@ -9,12 +9,20 @@ public abstract class Customer {
 
     @Id
     @GeneratedValue
-    private long id;
+    protected long id;
 
-    private String address;
-    private String phone;
+    protected String address;
+    protected String phone;
 
     public Customer() {
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getAddress() {

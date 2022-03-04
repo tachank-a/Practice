@@ -1,11 +1,15 @@
 package com.example.finalproject.controller;
 
+import com.example.finalproject.dto.DTO;
 import com.example.finalproject.entity.Contract;
+import com.example.finalproject.mapper.Mapper;
 import com.example.finalproject.service.ContractService;
 import com.example.finalproject.service.InsuredPersonService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 @RestController
 @RequestMapping("/api/contract")
@@ -20,9 +24,8 @@ public class Controller {
     }
 
     @GetMapping()
-    public List<Contract> findAll() {/// ??
-        return contractService.findAll();
-//        .stream().map(Mapper::toDto).collect(toList())
+    public List<DTO> findAll() {/// ??
+        return contractService.findAll().stream().map(Mapper::toDto).collect(toList());
     }
 
 
@@ -32,8 +35,13 @@ public class Controller {
     }
 
     @PostMapping()
-    public void addContract(@RequestBody Contract contract) {
-        contractService.save(contract);
+    public void addContractIndividual(@RequestBody DTO contract) {
+        contractService.save(Mapper.toContractIndividual(contract));
+        // phoneNumberService.save(phoneNumber);
+    }
+    @PostMapping()
+    public void addContractOrganization(@RequestBody DTO contract) {
+        contractService.save(Mapper.toContractOrganization(contract));
         // phoneNumberService.save(phoneNumber);
     }
 

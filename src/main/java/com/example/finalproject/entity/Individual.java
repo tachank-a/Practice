@@ -19,8 +19,12 @@ public class Individual extends Customer{
     @Column(name = "date_of_birth")
     private Date dob;
 
+
     public Individual() {
+
     }
+
+
 
     public Date getDob() {
         return dob;

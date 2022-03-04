@@ -18,7 +18,7 @@ public class Contract {
     private long id;
 
     @Column(name = "contract_number")
-    private long contractNumber;
+    private String contractNumber;
 
     @Column(name = "ds")
     private Date dateStart;
@@ -49,7 +49,7 @@ public class Contract {
     private Customer customers;
 
 
-    public Contract(long contractNumber, Date dateStart, Date dateEnd, Date dateConclusion, double sum, double premium, Set<InsuredPerson> insuredPerson) {
+    public Contract(String contractNumber, Date dateStart, Date dateEnd, Date dateConclusion, double sum, double premium, Set<InsuredPerson> insuredPerson) {
         this.contractNumber = contractNumber;
         this.dateStart = dateStart;
         this.dateEnd = dateEnd;
@@ -67,11 +67,15 @@ public class Contract {
         return id;
     }
 
-    public long getContractNumber() {
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getContractNumber() {
         return contractNumber;
     }
 
-    public void setContractNumber(long contractNumber) {
+    public void setContractNumber(String contractNumber) {
         this.contractNumber = contractNumber;
     }
 
@@ -113,6 +117,22 @@ public class Contract {
 
     public void setPremium(double premium) {
         this.premium = premium;
+    }
+
+    public Set<InsuredPerson> getInsuredPerson() {
+        return insuredPerson;
+    }
+
+    public void setInsuredPerson(Set<InsuredPerson> insuredPerson) {
+        this.insuredPerson = insuredPerson;
+    }
+
+    public Customer getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(Customer customers) {
+        this.customers = customers;
     }
 
     @Override

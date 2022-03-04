@@ -12,10 +12,13 @@ public class InsuredPerson {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private long id;
 
+    @Column(name = "full_name")
     private String fullName;
 
+    @Column(name = "date_of_birth")
     private Date dob;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
@@ -37,8 +40,9 @@ public class InsuredPerson {
         this.options = options;
     }
 
-    public InsuredPerson() {}
+    protected InsuredPerson() {
 
+    }
 
 
     public String getFullName() {
